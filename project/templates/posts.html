@@ -1,0 +1,36 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}!
+{% load custom_tags %}
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+   <h1>Все статьи</h1>
+   <h3>{% current_time '%b %d %Y' %}</h3>
+   <h7>Статей: {{ posts|length }} </h7>
+
+   <hr>
+   {% if posts %}
+       <table>
+           <tr>
+               <td>Заголовок</td>
+               <td>Дата публикации</td>
+               <td>Текст статьи</td>
+           </tr>
+
+           {% for post in posts %}
+           <tr>
+               <td>{{ post.postTitle }}</td>
+               <td>{{ post.creationDate|date:'d M Y' }}</td>
+               <td>{{ post.postText|truncatewords:20 }}</td>
+           </tr>
+           {% endfor %}
+
+       </table>
+   {% else %}
+       <h2>Статей нет!</h2>
+   {% endif %}
+{% endblock content %}
