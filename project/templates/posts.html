@@ -1,7 +1,6 @@
 {% extends 'flatpages/default.html' %}
 
-{% load custom_filters %}!
-{% load custom_tags %}
+{% load custom_filters %}
 
 {% block title %}
 Posts
@@ -9,7 +8,7 @@ Posts
 
 {% block content %}
    <h1>Все статьи</h1>
-   <h3>{% current_time '%b %d %Y' %}</h3>
+   <h3>{{ time_now|date:'M d Y' }}</h3>
    <h7>Статей: {{ posts|length }} </h7>
 
    <hr>
