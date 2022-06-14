@@ -24,7 +24,7 @@ Posts
            <tr>
                <td>{{ post.postTitle|censor }}</td>
                <td>{{ post.creationDate|date:'d M Y' }}</td>
-               <td>{{ post.postText|truncatewords:20|censor }}</td>
+               <td>{{ post.postText|truncatechars:20|censor }}</td>
            </tr>
            {% endfor %}
 
